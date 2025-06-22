@@ -62,11 +62,11 @@ Saat dijalankan, kamu akan diminta memilih gui atau langsung menggunakan CLI.
 📂 Struktur File
 
 fika/
-├── bot.py                # Program utama
-├── pengetahuan.json      # Data pengetahuan offline
-├── fakta_menarik.json    # Fakta-fakta menarik
-├── .gitignore            # File yang tidak akan dipush ke GitHub
-├── README.md             # Dokumentasi ini
+├── bot.py     # Program utama
+├── pengetahuan.json  # Data pengetahuan offline
+├── fakta_menarik.json # Fakta-fakta menarik
+├── .gitignore  # File yang tidak akan dipush ke GitHub
+├── README.md   # Dokumentasi ini
 
 📌 Catatan
 
