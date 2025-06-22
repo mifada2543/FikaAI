@@ -86,6 +86,7 @@ Dikembangkan oleh Akiro (2025). Untuk pertanyaan atau kolaborasi, silakan kontak
 
 MIT License
 
-Fika dibuat karena sang kreator mifada2543 gabut😁
+> Fika dibuat karena sang kreator [mifada2543](https://github.com/mifada2543) lagi gabut😁  
+> Tapi siapa sangka, dari kegabutan lahir AI offline kayak Fika!
 
 📌 Mohon tidak klaim ulang sebagai milik pribadi.
