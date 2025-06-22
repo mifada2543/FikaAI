@@ -1,3 +1,81 @@
-# FikaAI
-Asisten AI Python sederhana dengan GUI dan SQLite (by mifada2543)
-# Fika AI V1 - Dibuat oleh mifada2543 © 2025
+Fika AI
+
+Fika adalah asisten AI ringan berbasis Python yang bisa dijalankan dalam mode CLI (terminal) maupun GUI (desktop). Proyek ini dirancang untuk edukasi, eksperimen, dan hiburan.
+
+🎯 Fitur Utama
+
+✅ Tanya jawab (offline AI ringan)
+
+✅ Kalkulator matematika dasar
+
+✅ Perhitungan geometri (keliling, luas, volume)
+
+✅ Fakta teknologi dan fakta menarik harian
+
+✅ Penyimpanan riwayat percakapan (SQLite)
+
+✅ Pembelajaran pengetahuan baru secara manual
+
+✅ GUI sederhana berbasis Tkinter (dengan pemutar musik)
+
+✅ Mode terminal CLI cepat & ringan
+
+🧠 Teknologi yang Digunakan
+
+Python 3.8+
+
+sqlite3 untuk menyimpan riwayat & pengetahuan
+
+json untuk pengetahuan statis
+
+tkinter untuk antarmuka GUI
+
+pygame (opsional, untuk pemutar musik)
+
+🔧 Cara Menjalankan
+
+Clone repository:
+
+https://github.com/username/fika-ai.git
+cd fika-ai
+
+Install dependensi (opsional):
+
+pip install pygame
+
+Jalankan:
+
+python bot.py          # Mode CLI
+python bot.py --dev    # Mode CLI dengan debug
+
+Saat dijalankan, kamu akan diminta memilih gui atau langsung menggunakan CLI.
+
+📂 Struktur File
+
+fika/
+├── bot.py                # Program utama
+├── pengetahuan.json      # Data pengetahuan offline
+├── fakta_menarik.json    # Fakta-fakta menarik
+├── .gitignore            # File yang tidak akan dipush ke GitHub
+├── README.md             # Dokumentasi ini
+
+📌 Catatan
+
+Riwayat tersimpan otomatis ke riwayat_fika.db
+
+Semua data JSON bisa diedit secara manual
+
+Fika bisa "belajar" jika kamu ketik:
+
+belajar: ibu kota jepang = Tokyo
+
+🧑‍💻 Developer
+
+Dikembangkan oleh Akiro (2025). Untuk pertanyaan atau kolaborasi, silakan kontak melalui GitHub.
+
+📄 Lisensi
+
+MIT License
+
+Fika dibuat dengan semangat belajar dan cinta terhadap teknologi 🧠💻
+
