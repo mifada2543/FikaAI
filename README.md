@@ -30,6 +30,13 @@ json untuk pengetahuan statis
 
 tkinter untuk antarmuka GUI
 
+**Catatan untuk Linux:**
+Pastikan tkinter sudah terinstal:
+
+bash
+sudo apt install python3-tk
+
+
 pygame (opsional, untuk pemutar musik)
 
 🔧 Cara Menjalankan
