@@ -36,8 +36,8 @@ pygame (opsional, untuk pemutar musik)
 
 Clone repository:
 
-https://github.com/username/fika-ai.git
-cd fika-ai
+git clone https://github.com/mifada2543/FikaAI.git
+cd FikaAI
 
 Install dependensi (opsional):
 
