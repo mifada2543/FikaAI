@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Akiro (mifada2543)
+# Released under MIT License
 import math
 import random
 import re
