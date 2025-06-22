@@ -20,6 +20,8 @@ Fika adalah asisten AI ringan berbasis Python yang bisa dijalankan dalam mode CL
 
 ✅ Mode terminal CLI cepat & ringan
 
+Recommended memakai VS code
+
 🧠 Teknologi yang Digunakan
 
 Python 3.8+
