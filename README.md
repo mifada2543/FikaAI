@@ -84,5 +84,6 @@ Dikembangkan oleh Akiro (2025). Untuk pertanyaan atau kolaborasi, silakan kontak
 
 MIT License
 
-Fika dibuat dengan semangat belajar dan cinta terhadap teknologi 🧠💻
+Fika dibuat karena sang kreator mifada2543 gabut😁
 
+mohon jangan asal ambil klaim
