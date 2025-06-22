@@ -86,4 +86,4 @@ MIT License
 
 Fika dibuat karena sang kreator mifada2543 gabut😁
 
-mohon jangan asal ambil klaim
+📌 Mohon tidak klaim ulang sebagai milik pribadi.
