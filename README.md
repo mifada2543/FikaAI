@@ -45,8 +45,8 @@ pygame (opsional, untuk pemutar musik)
 
 Clone repository:
 
-git clone https://github.com/mifada2543/FikaAI.git
-cd FikaAI
+git clone https://github.com/mifada2543/FikaAI/V1.git
+cd V1
 
 Install dependensi (opsional):
 
@@ -80,7 +80,7 @@ belajar: ibu kota jepang = Tokyo
 
 🧑‍💻 Developer
 
-Dikembangkan oleh Akiro (2025). Untuk pertanyaan atau kolaborasi, silakan kontak melalui GitHub.
+Dikembangkan oleh Mifada2543(Akiro) (2025). Untuk pertanyaan atau kolaborasi, silakan kontak melalui GitHub.
 
 📄 Lisensi
 
