@@ -2,6 +2,14 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
 ![License](https://img.shields.io/github/license/mifada2543/FikaAI)
 
+## 📸 Tampilan GUI Fika
+
+![Tampilan GUI Fika](https://raw.githubusercontent.com/mifada2543/FikaAI/refs/heads/main/17505724575876390207229960351747.jpg)
+
+![Tampilan GUI Fika](https://raw.githubusercontent.com/mifada2543/FikaAI/refs/heads/main/IMG_20250622_130236.jpg)
+
+![Tampilan GUI Fika](https://raw.githubusercontent.com/mifada2543/FikaAI/refs/heads/main/IMG_20250622_130311.jpg)
+
 🇮🇩 Fika AI — Asisten AI Ringan (Offline + GUI)
 
 Fika adalah asisten AI ringan berbasis Python yang bisa berjalan dalam mode CLI (terminal) maupun GUI (desktop). Cocok untuk edukasi, eksperimen, atau hiburan pribadi.
