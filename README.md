@@ -49,7 +49,7 @@ git clone https://github.com/mifada2543/FikaAI/V1.git
 cd V1
 
 Install dependensi (opsional):
-
+pip install -r requirements.txt
 pip install pygame
 
 Jalankan:
