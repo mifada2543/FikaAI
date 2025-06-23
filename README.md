@@ -85,6 +85,8 @@ cd V1
 pip install pygame     # Opsional, untuk GUI music player
 python bot.py          # CLI mode
 python bot.py --dev    # CLI mode with debug
+python bot.py --gui    # GUI mode
+python bot.py --gui    # GUI mode with debug
 
 Saat dijalankan, kamu akan diminta memilih antara GUI atau CLI.
 When run, you'll be prompted to choose GUI or CLI mode.
