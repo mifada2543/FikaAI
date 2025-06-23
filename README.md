@@ -90,3 +90,7 @@ MIT License
 > Tapi siapa sangka, dari kegabutan lahir AI offline kayak Fika!
 
 📌 Mohon tidak klaim ulang sebagai milik pribadi.
+
+kalau banyak error mohon maaf aku mah mesih pemula😅
+
+kenapa belum sempurna karena kesempurnaan hanyalah milik tuhan
