@@ -7,6 +7,7 @@ import logging
 import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import filedialog, messagebox
+from tkinter import simpledialog
 import json
 import os
 import datetime
@@ -834,6 +835,8 @@ def mulai_gui():
         durasi_entry.pack()
         satuan_var = tk.StringVar(value="detik")
         tk.OptionMenu(win, satuan_var, "detik", "menit", "jam").pack()
+        repeat_var = tk.BooleanVar()
+        tk.Checkbutton(win, text="Harian (berulang)", variable=repeat_var).pack()
         def set_timer_cmd():
             try:
                 angka = int(durasi_entry.get())
@@ -844,7 +847,7 @@ def mulai_gui():
                     durasi = angka * 3600
                 else:
                     durasi = angka
-                set_timer_gui(durasi)
+                set_timer_gui(durasi, repeat=repeat_var.get())
                 chat_area.config(state='normal')
                 chat_area.insert(tk.END, f"Fika: Timer selama {angka} {satuan} dimulai!\n")
                 chat_area.config(state='disabled')
@@ -852,7 +855,30 @@ def mulai_gui():
                 win.destroy()
             except Exception:
                 messagebox.showerror("Error", "Input tidak valid!")
+        def simpan_preset_cmd():
+            try:
+                angka = int(durasi_entry.get())
+                satuan = satuan_var.get()
+                simpan_preset(f"Timer {angka} {satuan}", "timer", {"angka": angka, "satuan": satuan, "repeat": repeat_var.get()})
+                messagebox.showinfo("Info", "Preset disimpan!")
+            except Exception:
+                messagebox.showerror("Error", "Input tidak valid!")
+        def baca_preset_cmd():
+            preset = baca_preset()
+            items = [k for k, v in preset.items() if v["tipe"] == "timer"]
+            if not items:
+                messagebox.showinfo("Info", "Belum ada preset timer.")
+                return
+            pilih = tk.simpledialog.askstring("Pilih Preset", "Nama preset:\n" + "\n".join(items))
+            if pilih and pilih in preset:
+                data = preset[pilih]["data"]
+                durasi_entry.delete(0, tk.END)
+                durasi_entry.insert(0, str(data["angka"]))
+                satuan_var.set(data["satuan"])
+                repeat_var.set(data.get("repeat", False))
         tk.Button(win, text="Set Timer", command=set_timer_cmd).pack(pady=5)
+        tk.Button(win, text="Simpan Preset", command=simpan_preset_cmd).pack(pady=2)
+        tk.Button(win, text="Baca Preset", command=baca_preset_cmd).pack(pady=2)
 
     def buka_pengingat():
         win = tk.Toplevel(root)
@@ -865,6 +891,8 @@ def mulai_gui():
         durasi_entry.pack()
         satuan_var = tk.StringVar(value="detik")
         tk.OptionMenu(win, satuan_var, "detik", "menit", "jam").pack()
+        repeat_var = tk.BooleanVar()
+        tk.Checkbutton(win, text="Harian (berulang)", variable=repeat_var).pack()
         def set_pengingat_cmd():
             try:
                 pesan = pesan_entry.get()
@@ -876,7 +904,7 @@ def mulai_gui():
                     durasi = angka * 3600
                 else:
                     durasi = angka
-                set_timer_gui(durasi, f"Pengingat: {pesan}")
+                set_timer_gui(durasi, f"Pengingat: {pesan}", repeat=repeat_var.get())
                 chat_area.config(state='normal')
                 chat_area.insert(tk.END, f"Fika: Akan mengingatkan '{pesan}' dalam {angka} {satuan}.\n")
                 chat_area.config(state='disabled')
@@ -884,7 +912,33 @@ def mulai_gui():
                 win.destroy()
             except Exception:
                 messagebox.showerror("Error", "Input tidak valid!")
+        def simpan_preset_cmd():
+            try:
+                pesan = pesan_entry.get()
+                angka = int(durasi_entry.get())
+                satuan = satuan_var.get()
+                simpan_preset(f"Pengingat {pesan} {angka} {satuan}", "pengingat", {"pesan": pesan, "angka": angka, "satuan": satuan, "repeat": repeat_var.get()})
+                messagebox.showinfo("Info", "Preset disimpan!")
+            except Exception:
+                messagebox.showerror("Error", "Input tidak valid!")
+        def baca_preset_cmd():
+            preset = baca_preset()
+            items = [k for k, v in preset.items() if v["tipe"] == "pengingat"]
+            if not items:
+                messagebox.showinfo("Info", "Belum ada preset pengingat.")
+                return
+            pilih = tk.simpledialog.askstring("Pilih Preset", "Nama preset:\n" + "\n".join(items))
+            if pilih and pilih in preset:
+                data = preset[pilih]["data"]
+                pesan_entry.delete(0, tk.END)
+                pesan_entry.insert(0, data["pesan"])
+                durasi_entry.delete(0, tk.END)
+                durasi_entry.insert(0, str(data["angka"]))
+                satuan_var.set(data["satuan"])
+                repeat_var.set(data.get("repeat", False))
         tk.Button(win, text="Set Pengingat", command=set_pengingat_cmd).pack(pady=5)
+        tk.Button(win, text="Simpan Preset", command=simpan_preset_cmd).pack(pady=2)
+        tk.Button(win, text="Baca Preset", command=baca_preset_cmd).pack(pady=2)
 
     def buka_alarm():
         win = tk.Toplevel(root)
@@ -892,6 +946,11 @@ def mulai_gui():
         tk.Label(win, text="Jam (HH:MM, 24 jam):").pack()
         jam_entry = tk.Entry(win)
         jam_entry.pack()
+        pesan_entry = tk.Entry(win)
+        pesan_entry.insert(0, "Alarm!")
+        pesan_entry.pack()
+        repeat_var = tk.BooleanVar()
+        tk.Checkbutton(win, text="Harian (berulang)", variable=repeat_var).pack()
         def set_alarm_cmd():
             try:
                 jam_str = jam_entry.get()
@@ -900,7 +959,7 @@ def mulai_gui():
                 target = now.replace(hour=jam, minute=menit, second=0, microsecond=0)
                 if target < now:
                     target += datetime.timedelta(days=1)
-                set_alarm_gui(target)
+                set_alarm_gui(target, pesan=pesan_entry.get(), repeat=repeat_var.get())
                 chat_area.config(state='normal')
                 chat_area.insert(tk.END, f"Fika: Alarm disetel untuk jam {jam:02d}:{menit:02d}.\n")
                 chat_area.config(state='disabled')
@@ -908,7 +967,31 @@ def mulai_gui():
                 win.destroy()
             except Exception:
                 messagebox.showerror("Error", "Format jam salah! Contoh: 06:30")
+        def simpan_preset_cmd():
+            try:
+                jam_str = jam_entry.get()
+                jam, menit = map(int, jam_str.split(":"))
+                simpan_preset(f"Alarm {jam_str}", "alarm", {"jam": jam, "menit": menit, "pesan": pesan_entry.get(), "repeat": repeat_var.get()})
+                messagebox.showinfo("Info", "Preset disimpan!")
+            except Exception:
+                messagebox.showerror("Error", "Format jam salah! Contoh: 06:30")
+        def baca_preset_cmd():
+            preset = baca_preset()
+            items = [k for k, v in preset.items() if v["tipe"] == "alarm"]
+            if not items:
+                messagebox.showinfo("Info", "Belum ada preset alarm.")
+                return
+            pilih = tk.simpledialog.askstring("Pilih Preset", "Nama preset:\n" + "\n".join(items))
+            if pilih and pilih in preset:
+                data = preset[pilih]["data"]
+                jam_entry.delete(0, tk.END)
+                jam_entry.insert(0, f"{data['jam']:02d}:{data['menit']:02d}")
+                pesan_entry.delete(0, tk.END)
+                pesan_entry.insert(0, data.get("pesan", "Alarm!"))
+                repeat_var.set(data.get("repeat", False))
         tk.Button(win, text="Set Alarm", command=set_alarm_cmd).pack(pady=5)
+        tk.Button(win, text="Simpan Preset", command=simpan_preset_cmd).pack(pady=2)
+        tk.Button(win, text="Baca Preset", command=baca_preset_cmd).pack(pady=2)
 
     # Frame tombol menu
     fitur_frame = tk.Frame(root, bg="#e3f2fd")
@@ -966,43 +1049,292 @@ def set_alarm_cli(target_time, pesan="Alarm!"):
     threading.Thread(target=alarm_thread, daemon=True).start()
 
 # --- Fitur Timer, Alarm, Pengingat di GUI ---
-def set_timer_gui(durasi, pesan="Timer selesai!"):
-    def timer_thread():
-        time.sleep(durasi)
-        chat_area.config(state='normal')
-        chat_area.insert(tk.END, f"Fika: {pesan}\n")
-        chat_area.config(state='disabled')
-        chat_area.see(tk.END)
-        play_custom_sound()
-    threading.Thread(target=timer_thread, daemon=True).start()
+last_timer = {"durasi": 0, "pesan": "", "repeat": False}
 
-def set_alarm_gui(target_time, pesan="Alarm!"):
-    def alarm_thread():
-        now = datetime.datetime.now()
-        selisih = (target_time - now).total_seconds()
-        if selisih > 0:
-            time.sleep(selisih)
-        chat_area.config(state='normal')
-        chat_area.insert(tk.END, f"Fika: {pesan}\n")
-        chat_area.config(state='disabled')
-        chat_area.see(tk.END)
-        play_custom_sound()
-    threading.Thread(target=alarm_thread, daemon=True).start()
+def update_countdown_gui(sisa):
+    """Update countdown timer/alarm di GUI, misal tampilkan di title window."""
+    try:
+        if sisa > 0:
+            m, s = divmod(sisa, 60)
+            h, m = divmod(m, 60)
+            waktu_str = f"Sisa waktu: {int(h):02d}:{int(m):02d}:{int(s):02d}"
+        else:
+            waktu_str = "Waktu habis!"
+        if 'root' in globals():
+            root.title(f"Fika Chatbot - {waktu_str}")
+    except Exception:
+        pass
 
 def play_custom_sound():
-    if custom_sound_path[0] and os.path.isfile(custom_sound_path[0]):
-        try:
+    """Mainkan suara custom jika dipilih, jika tidak mainkan beep default."""
+    try:
+        if custom_sound_path[0] and os.path.isfile(custom_sound_path[0]):
             pygame.mixer.music.load(custom_sound_path[0])
             pygame.mixer.music.play()
-        except Exception:
-            pass
+        else:
+            # Default beep (cross-platform)
+            if sys.platform.startswith("win"):
+                import winsound
+                winsound.MessageBeep()
+            else:
+                print('\a')  # ASCII Bell
+    except Exception as e:
+        print("Gagal memutar suara:", e)
 
-# --- Main ---
+def set_timer_gui(durasi, pesan="Timer selesai!", repeat=False):
+    last_timer["durasi"] = durasi
+    last_timer["pesan"] = pesan
+    last_timer["repeat"] = repeat
+    def timer_thread():
+        sisa = durasi
+        while sisa > 0:
+            update_countdown_gui(sisa)
+            time.sleep(1)
+            sisa -= 1
+        update_countdown_gui(0)
+        chat_area.config(state='normal')
+        chat_area.insert(tk.END, f"Fika: {pesan}\n")
+        chat_area.config(state='disabled')
+        chat_area.see(tk.END)
+        play_custom_sound()
+        tampilkan_tombol_ulang()
+        if repeat:
+            set_timer_gui(durasi, pesan, repeat=True)
+    threading.Thread(target=timer_thread, daemon=True).start()
+
+def set_alarm_gui(target_time, pesan="Alarm!", repeat=False):
+    def alarm_thread():
+        while True:
+            now = datetime.datetime.now()
+            selisih = (target_time - now).total_seconds()
+            if selisih > 0:
+                update_countdown_gui(int(selisih))
+                time.sleep(1)
+            else:
+                break
+        update_countdown_gui(0)
+        chat_area.config(state='normal')
+        chat_area.insert(tk.END, f"Fika: {pesan}\n")
+        chat_area.config(state='disabled')
+        chat_area.see(tk.END)
+        play_custom_sound()
+        tampilkan_tombol_ulang(alarm=True, target_time=target_time, pesan=pesan, repeat=repeat)
+        if repeat:
+            next_time = target_time + datetime.timedelta(days=1)
+            set_alarm_gui(next_time, pesan, repeat=True)
+    threading.Thread(target=alarm_thread, daemon=True).start()
+
+def tampilkan_tombol_ulang(alarm=False, target_time=None, pesan=None, repeat=False):
+    def ulangi():
+        if alarm:
+            set_alarm_gui(target_time + datetime.timedelta(days=0 if not repeat else 1), pesan=pesan, repeat=repeat)
+        else:
+            set_timer_gui(last_timer["durasi"], last_timer["pesan"], repeat=last_timer["repeat"])
+        ulang_btn.destroy()
+    ulang_btn = tk.Button(root, text="🔁 Ulangi", command=ulangi, bg="#1976d2", fg="white", font=("Segoe UI", 10, "bold"))
+    ulang_btn.pack(pady=(0,5))
+    root.after(10000, ulang_btn.destroy)  # tombol hilang otomatis setelah 10 detik
+
+# --- Preset Timer/Alarm/Pengingat ---
+def simpan_preset(nama, tipe, data):
+    """Simpan preset ke file preset_fika.json"""
+    path = os.path.join(os.path.dirname(__file__), "preset_fika.json")
+    try:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                preset = json.load(f)
+        else:
+            preset = {}
+        preset[nama] = {"tipe": tipe, "data": data}
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(preset, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print("Gagal menyimpan preset:", e)
+
+def baca_preset():
+    """Baca semua preset dari file preset_fika.json"""
+    path = os.path.join(os.path.dirname(__file__), "preset_fika.json")
+    try:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        else:
+            return {}
+    except Exception as e:
+        print("Gagal membaca preset:", e)
+        return {}
+
+# --- MODIFIKASI JENDELA TIMER/PENGINGAT/ALARM ---
+def buka_timer():
+    win = tk.Toplevel(root)
+    win.title("Set Timer")
+    tk.Label(win, text="Durasi (angka):").pack()
+    durasi_entry = tk.Entry(win)
+    durasi_entry.pack()
+    satuan_var = tk.StringVar(value="detik")
+    tk.OptionMenu(win, satuan_var, "detik", "menit", "jam").pack()
+    repeat_var = tk.BooleanVar()
+    tk.Checkbutton(win, text="Harian (berulang)", variable=repeat_var).pack()
+    def set_timer_cmd():
+        try:
+            angka = int(durasi_entry.get())
+            satuan = satuan_var.get()
+            if satuan == "menit":
+                durasi = angka * 60
+            elif satuan == "jam":
+                durasi = angka * 3600
+            else:
+                durasi = angka
+            set_timer_gui(durasi, repeat=repeat_var.get())
+            chat_area.config(state='normal')
+            chat_area.insert(tk.END, f"Fika: Timer selama {angka} {satuan} dimulai!\n")
+            chat_area.config(state='disabled')
+            chat_area.see(tk.END)
+            win.destroy()
+        except Exception:
+            messagebox.showerror("Error", "Input tidak valid!")
+    def simpan_preset_cmd():
+        try:
+            angka = int(durasi_entry.get())
+            satuan = satuan_var.get()
+            simpan_preset(f"Timer {angka} {satuan}", "timer", {"angka": angka, "satuan": satuan, "repeat": repeat_var.get()})
+            messagebox.showinfo("Info", "Preset disimpan!")
+        except Exception:
+            messagebox.showerror("Error", "Input tidak valid!")
+    def baca_preset_cmd():
+        preset = baca_preset()
+        items = [k for k, v in preset.items() if v["tipe"] == "timer"]
+        if not items:
+            messagebox.showinfo("Info", "Belum ada preset timer.")
+            return
+        pilih = tk.simpledialog.askstring("Pilih Preset", "Nama preset:\n" + "\n".join(items))
+        if pilih and pilih in preset:
+            data = preset[pilih]["data"]
+            durasi_entry.delete(0, tk.END)
+            durasi_entry.insert(0, str(data["angka"]))
+            satuan_var.set(data["satuan"])
+            repeat_var.set(data.get("repeat", False))
+    tk.Button(win, text="Set Timer", command=set_timer_cmd).pack(pady=5)
+    tk.Button(win, text="Simpan Preset", command=simpan_preset_cmd).pack(pady=2)
+    tk.Button(win, text="Baca Preset", command=baca_preset_cmd).pack(pady=2)
+
+def buka_pengingat():
+    win = tk.Toplevel(root)
+    win.title("Set Pengingat")
+    tk.Label(win, text="Pesan:").pack()
+    pesan_entry = tk.Entry(win)
+    pesan_entry.pack()
+    tk.Label(win, text="Durasi (angka):").pack()
+    durasi_entry = tk.Entry(win)
+    durasi_entry.pack()
+    satuan_var = tk.StringVar(value="detik")
+    tk.OptionMenu(win, satuan_var, "detik", "menit", "jam").pack()
+    repeat_var = tk.BooleanVar()
+    tk.Checkbutton(win, text="Harian (berulang)", variable=repeat_var).pack()
+    def set_pengingat_cmd():
+        try:
+            pesan = pesan_entry.get()
+            angka = int(durasi_entry.get())
+            satuan = satuan_var.get()
+            if satuan == "menit":
+                durasi = angka * 60
+            elif satuan == "jam":
+                durasi = angka * 3600
+            else:
+                durasi = angka
+            set_timer_gui(durasi, f"Pengingat: {pesan}", repeat=repeat_var.get())
+            chat_area.config(state='normal')
+            chat_area.insert(tk.END, f"Fika: Akan mengingatkan '{pesan}' dalam {angka} {satuan}.\n")
+            chat_area.config(state='disabled')
+            chat_area.see(tk.END)
+            win.destroy()
+        except Exception:
+            messagebox.showerror("Error", "Input tidak valid!")
+    def simpan_preset_cmd():
+        try:
+            pesan = pesan_entry.get()
+            angka = int(durasi_entry.get())
+            satuan = satuan_var.get()
+            simpan_preset(f"Pengingat {pesan} {angka} {satuan}", "pengingat", {"pesan": pesan, "angka": angka, "satuan": satuan, "repeat": repeat_var.get()})
+            messagebox.showinfo("Info", "Preset disimpan!")
+        except Exception:
+            messagebox.showerror("Error", "Input tidak valid!")
+    def baca_preset_cmd():
+        preset = baca_preset()
+        items = [k for k, v in preset.items() if v["tipe"] == "pengingat"]
+        if not items:
+            messagebox.showinfo("Info", "Belum ada preset pengingat.")
+            return
+        pilih = tk.simpledialog.askstring("Pilih Preset", "Nama preset:\n" + "\n".join(items))
+        if pilih and pilih in preset:
+            data = preset[pilih]["data"]
+            pesan_entry.delete(0, tk.END)
+            pesan_entry.insert(0, data["pesan"])
+            durasi_entry.delete(0, tk.END)
+            durasi_entry.insert(0, str(data["angka"]))
+            satuan_var.set(data["satuan"])
+            repeat_var.set(data.get("repeat", False))
+    tk.Button(win, text="Set Pengingat", command=set_pengingat_cmd).pack(pady=5)
+    tk.Button(win, text="Simpan Preset", command=simpan_preset_cmd).pack(pady=2)
+    tk.Button(win, text="Baca Preset", command=baca_preset_cmd).pack(pady=2)
+
+def buka_alarm():
+    win = tk.Toplevel(root)
+    win.title("Set Alarm")
+    tk.Label(win, text="Jam (HH:MM, 24 jam):").pack()
+    jam_entry = tk.Entry(win)
+    jam_entry.pack()
+    pesan_entry = tk.Entry(win)
+    pesan_entry.insert(0, "Alarm!")
+    pesan_entry.pack()
+    repeat_var = tk.BooleanVar()
+    tk.Checkbutton(win, text="Harian (berulang)", variable=repeat_var).pack()
+    def set_alarm_cmd():
+        try:
+            jam_str = jam_entry.get()
+            jam, menit = map(int, jam_str.split(":"))
+            now = datetime.datetime.now()
+            target = now.replace(hour=jam, minute=menit, second=0, microsecond=0)
+            if target < now:
+                target += datetime.timedelta(days=1)
+            set_alarm_gui(target, pesan=pesan_entry.get(), repeat=repeat_var.get())
+            chat_area.config(state='normal')
+            chat_area.insert(tk.END, f"Fika: Alarm disetel untuk jam {jam:02d}:{menit:02d}.\n")
+            chat_area.config(state='disabled')
+            chat_area.see(tk.END)
+            win.destroy()
+        except Exception:
+            messagebox.showerror("Error", "Format jam salah! Contoh: 06:30")
+    def simpan_preset_cmd():
+        try:
+            jam_str = jam_entry.get()
+            jam, menit = map(int, jam_str.split(":"))
+            simpan_preset(f"Alarm {jam_str}", "alarm", {"jam": jam, "menit": menit, "pesan": pesan_entry.get(), "repeat": repeat_var.get()})
+            messagebox.showinfo("Info", "Preset disimpan!")
+        except Exception:
+            messagebox.showerror("Error", "Format jam salah! Contoh: 06:30")
+    def baca_preset_cmd():
+        preset = baca_preset()
+        items = [k for k, v in preset.items() if v["tipe"] == "alarm"]
+        if not items:
+            messagebox.showinfo("Info", "Belum ada preset alarm.")
+            return
+        pilih = tk.simpledialog.askstring("Pilih Preset", "Nama preset:\n" + "\n".join(items))
+        if pilih and pilih in preset:
+            data = preset[pilih]["data"]
+            jam_entry.delete(0, tk.END)
+            jam_entry.insert(0, f"{data['jam']:02d}:{data['menit']:02d}")
+            pesan_entry.delete(0, tk.END)
+            pesan_entry.insert(0, data.get("pesan", "Alarm!"))
+            repeat_var.set(data.get("repeat", False))
+    tk.Button(win, text="Set Alarm", command=set_alarm_cmd).pack(pady=5)
+    tk.Button(win, text="Simpan Preset", command=simpan_preset_cmd).pack(pady=2)
+    tk.Button(win, text="Baca Preset", command=baca_preset_cmd).pack(pady=2)
+
 if __name__ == "__main__":
-    init_db()
     pastikan_file_json()
-    mode = input("Ketik 'gui' untuk mode GUI, atau tekan Enter untuk mode terminal: ").strip().lower()
-    if mode == "gui":
+    init_db()
+    if "--gui" in sys.argv:
         mulai_gui()
     else:
         menu_utama()
