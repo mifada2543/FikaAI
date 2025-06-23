@@ -1,96 +1,126 @@
-Fika AI
+🇮🇩 Fika AI — Asisten AI Ringan (Offline + GUI)
 
-Fika adalah asisten AI ringan berbasis Python yang bisa dijalankan dalam mode CLI (terminal) maupun GUI (desktop). Proyek ini dirancang untuk edukasi, eksperimen, dan hiburan.
+Fika adalah asisten AI ringan berbasis Python yang bisa berjalan dalam mode CLI (terminal) maupun GUI (desktop). Cocok untuk edukasi, eksperimen, atau hiburan pribadi.
 
-🎯 Fitur Utama
 
-✅ Tanya jawab (offline AI ringan)
+---
+
+🇬🇧 Fika AI — Lightweight AI Assistant (Offline + GUI)
+
+Fika is a lightweight AI assistant built with Python, supporting CLI (terminal) and GUI (desktop) modes. Ideal for education, experimentation, or casual fun.
+
+
+---
+
+🎯 🇮🇩 Fitur Utama / 🇬🇧 Key Features
+
+✅ Tanya jawab (AI offline ringan)
+✅ Q&A with lightweight offline AI
 
 ✅ Kalkulator matematika dasar
+✅ Basic math calculator
 
 ✅ Perhitungan geometri (keliling, luas, volume)
+✅ Geometry calculations (perimeter, area, volume)
 
 ✅ Fakta teknologi dan fakta menarik harian
+✅ Daily tech & fun facts
 
 ✅ Penyimpanan riwayat percakapan (SQLite)
+✅ Chat history saved (SQLite)
 
 ✅ Pembelajaran pengetahuan baru secara manual
+✅ Manual knowledge learning
 
-✅ GUI sederhana berbasis Tkinter (dengan pemutar musik)
+✅ GUI sederhana dengan pemutar musik (pygame opsional)
+✅ Simple GUI with music player (optional pygame)
 
-✅ Mode terminal CLI cepat & ringan
+✅ Mode CLI cepat & ringan
+✅ Fast & lightweight CLI mode
 
-Recommended memakai VS code
 
-🧠 Teknologi yang Digunakan
+
+---
+
+🧠 Teknologi / Technologies
 
 Python 3.8+
 
-sqlite3 untuk menyimpan riwayat & pengetahuan
+sqlite3 (riwayat & pengetahuan / history & knowledge)
 
-json untuk pengetahuan statis
+json (data statis / static data)
 
-tkinter untuk antarmuka GUI
+tkinter (antarmuka GUI / GUI interface)
 
-**Catatan untuk Linux:**
-Pastikan tkinter sudah terinstal:
+pygame (opsional untuk musik / optional music player)
 
-bash
+
+📦 Rekomendasi editor: Visual Studio Code
+
+
+---
+
+🔧 🇮🇩 Cara Menjalankan / 🇬🇧 How to Run
+
+tolong baca requirement.txt/please read requirement.txt
+git clone https://github.com/mifada2543/FikaAI/V1.git
+cd V1
+pip install pygame     # Opsional, untuk GUI music player
+python bot.py          # CLI mode
+python bot.py --dev    # CLI mode with debug
+
+Saat dijalankan, kamu akan diminta memilih antara GUI atau CLI.
+When run, you'll be prompted to choose GUI or CLI mode.
+
+📝 Untuk Linux, pastikan tkinter sudah terinstal:
+
 sudo apt install python3-tk
 
 
-pygame (opsional, untuk pemutar musik)
+---
 
-🔧 Cara Menjalankan
-
-Clone repository:
-
-git clone https://github.com/mifada2543/FikaAI/V1.git
-cd V1
-
-Install dependensi (opsional):
-pip install -r requirements.txt
-pip install pygame
-
-Jalankan:
-
-python bot.py          # Mode CLI
-python bot.py --dev    # Mode CLI dengan debug
-
-Saat dijalankan, kamu akan diminta memilih gui atau langsung menggunakan CLI.
-
-📂 Struktur File
+📂 Struktur Proyek / Project Structure
 
 fika/
-├── bot.py     # Program utama
-├── pengetahuan.json  # Data pengetahuan offline
-├── fakta_menarik.json # Fakta-fakta menarik
-├── .gitignore  # File yang tidak akan dipush ke GitHub
-├── README.md   # Dokumentasi ini
+├── bot.py                 # Program utama / Main program
+├── pengetahuan.json       # Data pengetahuan offline
+├── fakta_menarik.json     # Fakta menarik
+├── riwayat_fika.db        # Riwayat disimpan otomatis
+├── README.md              # Dokumentasi
+├── .gitignore             # File yang diabaikan Git
 
-📌 Catatan
 
-Riwayat tersimpan otomatis ke riwayat_fika.db
+---
 
-Semua data JSON bisa diedit secara manual
+💡 Belajar Manual / Manual Learning
 
-Fika bisa "belajar" jika kamu ketik:
+Contoh:
 
 belajar: ibu kota jepang = Tokyo
 
-🧑‍💻 Developer
 
-Dikembangkan oleh Mifada2543(Akiro) (2025). Untuk pertanyaan atau kolaborasi, silakan kontak melalui GitHub.
+---
 
-📄 Lisensi
+👨‍💻 Pengembang / Developer
+
+Dikembangkan oleh Mifada2543 (Akiro) — 2025
+Developed by Mifada2543 (Akiro) — 2025
+
+📬 Untuk kolaborasi, hubungi via GitHub.
+For collaboration, contact via GitHub.
+
+
+---
+
+📄 Lisensi / License
 
 MIT License
 
-> Fika dibuat karena sang kreator [mifada2543](https://github.com/mifada2543) lagi gabut😁  
-> Tapi siapa sangka, dari kegabutan lahir AI offline kayak Fika!
 
-📌 Mohon tidak klaim ulang sebagai milik pribadi.
+---
 
-kalau banyak error mohon maaf aku mah mesih pemula😅
+> 📝 Fika dibuat karena sang kreator lagi gabut 😁
+Tapi siapa sangka, dari kegabutan lahirlah AI offline kayak Fika!
 
-kenapa belum sempurna karena kesempurnaan hanyalah milik tuhan
+Created because the dev was bored 😁
+But who knew boredom could lead to an AI like Fika?
