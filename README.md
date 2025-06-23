@@ -125,6 +125,9 @@ For collaboration, contact via GitHub.
 
 ---
 
+🛡️ Hak cipta proyek ini tetap dimiliki oleh pencipta asli (mifada2543).  
+Siapapun boleh menggunakan, memodifikasi(tidak untuk hal negatif dan melanggar norma), dan menyebarkan ulang dengan syarat tetap mencantumkan nama pembuat asli.
+
 📄 Lisensi / License
 
 MIT License
