@@ -1,5 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
+mungkin bisa android tetapi tanpa GUI😅
 ![License](https://img.shields.io/github/license/mifada2543/FikaAI)
 
 ## 📸 Tampilan GUI Fika
