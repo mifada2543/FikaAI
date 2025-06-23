@@ -1,3 +1,7 @@
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
+![License](https://img.shields.io/github/license/mifada2543/FikaAI)
+
 🇮🇩 Fika AI — Asisten AI Ringan (Offline + GUI)
 
 Fika adalah asisten AI ringan berbasis Python yang bisa berjalan dalam mode CLI (terminal) maupun GUI (desktop). Cocok untuk edukasi, eksperimen, atau hiburan pribadi.
