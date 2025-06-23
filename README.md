@@ -1,5 +1,7 @@
 Mesih pemula😅
-
+![Python](https://img.shields.io/badge/Built%20With-Python%203-blue)
+![SQLite](https://img.shields.io/badge/Storage-SQLite-lightgrey)
+![CLI+GUI](https://img.shields.io/badge/Modes-CLI%20%7C%20GUI-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
 mungkin bisa android tetapi tanpa GUI😅
