@@ -14,7 +14,7 @@ try:
 except Exception as e:
     print("Peringatan: Gagal inisialisasi audio:", e)
 
-# --- Utility & Data ---
+# -- Utility & Data --
 def load_json(path, default):
     try:
         with open(path, "r", encoding="utf-8") as f:
