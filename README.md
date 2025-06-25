@@ -1,4 +1,6 @@
 Mesih pemula😅
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
+![License](https://img.shields.io/github/license/mifada2543/FikaAI)
 ![Python](https://img.shields.io/badge/Built%20With-Python%203-blue)
 ![SQLite](https://img.shields.io/badge/Storage-SQLite-lightgrey)
 ![CLI+GUI](https://img.shields.io/badge/Modes-CLI%20%7C%20GUI-brightgreen)
