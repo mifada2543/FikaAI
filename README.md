@@ -1,3 +1,5 @@
+GIT sedang bermasalah😅,silakan download manual
+
 Mesih pemula😅 kalau ada masalah boleh ditanya di Group.md
 
 Saya usahakan menjawab sebisa saya -Mifada2543
