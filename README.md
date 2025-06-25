@@ -1,4 +1,7 @@
-Mesih pemula😅
+Mesih pemula😅 kalau ada masalah boleh ditanya di Group.md
+
+Saya usahakan menjawab sebisa saya -Mifada2543
+
 ![License](https://img.shields.io/github/license/mifada2543/FikaAI)
 ![Python](https://img.shields.io/badge/Built%20With-Python%203-blue)
 ![SQLite](https://img.shields.io/badge/Storage-SQLite-lightgrey)
