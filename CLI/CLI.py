@@ -13,7 +13,7 @@ import time
 
 PENGETAHUAN_URL = "https://github.com/mifada2543/FikaAI/blob/main/update/pengetahuan.json"  # Ganti dengan URL JSON online
 
-# --- Database Setup ---
+# -- Database Setup --
 def init_db():
     conn = sqlite3.connect("riwayat_fika.db")
     c = conn.cursor()
