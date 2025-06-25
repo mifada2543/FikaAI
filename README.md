@@ -13,11 +13,12 @@ Android bisa dengan python + termux hanya versi CLI saja
 
 ## 📸 Tampilan GUI Fika
 
-![Tampilan GUI Fika](https://raw.githubusercontent.com/mifada2543/FikaAI/refs/heads/main/17505724575876390207229960351747.jpg)
+Bisa di cek di Screenshot
+![Tampilan GUI Fika](https://github.com/mifada2543/FikaAI/blob/main/Screenshot/17505724575876390207229960351747.jpg)
 
-![Tampilan GUI Fika](https://raw.githubusercontent.com/mifada2543/FikaAI/refs/heads/main/IMG_20250622_130236.jpg)
+![Tampilan GUI Fika]Dalam perbaikan
 
-![Tampilan GUI Fika](https://raw.githubusercontent.com/mifada2543/FikaAI/refs/heads/main/IMG_20250622_130311.jpg)
+![Tampilan GUI Fika]Dalam perbaikan
 
 🇮🇩 Fika AI — Asisten AI Ringan (Offline + GUI)
 
@@ -71,18 +72,17 @@ sqlite3 (riwayat & pengetahuan / history & knowledge)
 
 json (data statis / static data)
 
-tkinter (antarmuka GUI / GUI interface)
+tkinter (antarmuka GUI / GUI interface)(windows and linux only, Android not recomended)
 
-pygame (opsional untuk musik / optional music player)
+pygame (opsional untuk musik / optional music player)(windows and linux only, Android not recomended)
 
-
-📦 Rekomendasi editor: Visual Studio Code
 
 
 ---
 
 🔧 🇮🇩 Cara Menjalankan / 🇬🇧 How to Run
 
+📦 Rekomendasi editor: Visual Studio Code
 tolong baca requirement.txt/please read requirement.txt
 git clone https://github.com/mifada2543/FikaAI/V1.git
 cd V1
@@ -95,10 +95,16 @@ python bot.py --gui    # GUI mode with debug
 Saat dijalankan, kamu akan diminta memilih antara GUI atau CLI.
 When run, you'll be prompted to choose GUI or CLI mode.
 
-📝 Untuk Linux, pastikan tkinter sudah terinstal:
+📝 Untuk Linux(langkahnya kurang tau), pastikan tkinter sudah terinstal:
 
 sudo apt install python3-tk
 
+📝langkah Untuk Android, Pastikan gunakan versi CLI dan sudah install python
+pkg update && pkg upgrade
+pkg install python
+git clone https://github.com/mifada2543/FikaAI/V1.git
+ganti atau tambahkan CLI dari https://github.com/mifada2543/FikaAI/CLI.git
+jalankan "python CLI.py"
 
 ---
 
