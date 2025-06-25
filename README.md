@@ -144,6 +144,15 @@ MIT License
 This project is based on Fika by Akiro (https://github.com/Mifada2543/FikaAI), licensed under the MIT License.
 
 ---
+✨ Tentang Fika
+
+> Fika adalah proyek asisten AI ringan yang lahir dari mimpi seorang pelajar berusia 12 tahun, dan mulai diwujudkan saat ia berusia 15 tahun.
+
+Dikembangkan oleh Akiro (mifada2543), Fika dibuat dengan rasa penasaran besar terhadap dunia AI dan bagaimana sebuah asisten virtual bisa bekerja — tanpa perlu sumber daya besar atau internet.
+
+Dibangun sepenuhnya dengan Python, Fika tumbuh dari proyek iseng menjadi asisten virtual lengkap dengan antarmuka CLI dan GUI, fitur matematika, fakta, alarm, hingga pemutar musik.
+
+Fika adalah simbol bahwa semangat belajar dan ketekunan bisa menghasilkan karya yang luar biasa
 
 > 📝 Fika dibuat karena sang kreator lagi gabut 😁
 Tapi siapa sangka, dari kegabutan lahirlah AI offline kayak Fika!
