@@ -101,11 +101,14 @@ When run, you'll be prompted to choose GUI or CLI mode.
 
 sudo apt install python3-tk
 
-📝langkah Untuk Android, Pastikan gunakan versi CLI dan sudah install python
-pkg update && pkg upgrade
+📝langkah Untuk Android, Pastikan gunakan versi CLI.
+download semua bahannya (CLI.py, pengetahuan.json, dll)
+pastikan semua file ada di folder download
+lalu copy semua filenya dan buat folder baru bernama "Fika"
+Masuk ke termux pastikan sudah pkg update && pkg upgrade
 pkg install python
-git clone https://github.com/mifada2543/FikaAI/V1.git
-ganti atau tambahkan CLI dari https://github.com/mifada2543/FikaAI/CLI.git
+lalu jalankan perintah "cp -r /sdcard/Download/Fika /data/data/com.termux/files/home/"
+cd Fika
 jalankan "python CLI.py"
 
 ---
