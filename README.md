@@ -11,7 +11,6 @@ Saya usahakan menjawab sebisa saya -Mifada2543
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
 Android bisa dengan python + termux hanya versi CLI saja
-![License](https://img.shields.io/github/license/mifada2543/FikaAI)
 
 ## 📸 Tampilan GUI Fika
 
