@@ -137,7 +137,7 @@ Siapapun boleh menggunakan, memodifikasi(tidak untuk hal negatif dan melanggar n
 📄 Lisensi / License
 
 MIT License
-
+This project is based on Fika by Akiro (https://github.com/Mifada2543/FikaAI), licensed under the MIT License.
 
 ---
 
