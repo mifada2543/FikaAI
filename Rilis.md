@@ -1,6 +1,6 @@
 # RILIS PROYEK FIKA AI
 
-Fika AI adalah proyek asisten suara berbasis AI yang dibuat dan dikembangkan oleh **mifada2543**.
+Fika AI adalah proyek asisten virtual berbasis AI yang dibuat dan dikembangkan oleh **mifada2543**.
 
 Tanggal rilis awal: **22 Juni 2025**
 
