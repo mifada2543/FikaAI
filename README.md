@@ -19,10 +19,6 @@ Android bisa dengan python + termux hanya versi CLI saja
 Bisa di cek di Screenshot
 ![Tampilan GUI Fika](https://github.com/mifada2543/FikaAI/blob/main/Screenshot/17505724575876390207229960351747.jpg)
 
-![Tampilan GUI Fika]Dalam perbaikan
-
-![Tampilan GUI Fika]Dalam perbaikan
-
 🇮🇩 Fika AI — Asisten AI Ringan (Offline + GUI)
 
 Fika adalah asisten AI ringan berbasis Python yang bisa berjalan dalam mode CLI (terminal) maupun GUI (desktop). Cocok untuk edukasi, eksperimen, atau hiburan pribadi.
@@ -171,3 +167,9 @@ Tapi siapa sangka, dari kegabutan lahirlah AI offline kayak Fika!
 
 Created because the dev was bored 😁
 But who knew boredom could lead to an AI like Fika?
+
+## 📢 NOTICE
+
+Fika adalah karya asli dari mifada2543.  
+Silakan fork, modifikasi (tidak untuk hal negatif dan melanggar norma), dan kembangkan dengan bebas, asal tetap mencantumkan nama pembuat asli.  
+Tidak diperkenankan mengklaim Fika V1 sebagai karya orisinal tanpa kredit.
