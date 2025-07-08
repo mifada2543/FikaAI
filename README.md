@@ -1,5 +1,7 @@
 GIT sedang bermasalah😅,silakan download manual
 
+Untuk versi CLI terutama versi Android memerlukan aplikasi tambahan seperti VLC untuk media pemutar😅
+
 Mesih pemula😅 kalau ada masalah boleh ditanya di Group.md
 
 Saya usahakan menjawab sebisa saya -Mifada2543
@@ -9,7 +11,7 @@ Saya usahakan menjawab sebisa saya -Mifada2543
 ![SQLite](https://img.shields.io/badge/Storage-SQLite-lightgrey)
 ![CLI+GUI](https://img.shields.io/badge/Modes-CLI%20%7C%20GUI-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20Android-lightgrey)
 Android bisa dengan python + termux hanya versi CLI saja
 
 ## 📸 Tampilan GUI Fika
